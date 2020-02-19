@@ -104,7 +104,6 @@ print('CSU state: ',csu_setup_state)
 if csu_setup_state==2: #(checkout that this state is =2)
 
     print('Open the alignment boxes 5 arcsec')
-#subprocess.Popen('modify -s mosfire csugo=1', shell=True, stdout=subprocess.PIPE).stdout
     execute_mask()
     waitfor_CSU()
 
