@@ -38,19 +38,11 @@ for i in range(1,47):
 
     # Position of the even bars:
 
-    #even_bar0 = subprocess.Popen('show -s mcsus '+'B'+"{0:0=2d}".format(2*i)+'POS',shell=True, stdout=subprocess.PIPE).stdout
-    #even_bar = even_bar0.read()
-    #pos_even = float(odd_bar[33:42])
-
     even_bar = get(f"B{2*i:02d}POS", 'mcsus', mode=float)
     print('Position even bar: ', even_bar)
 
 
     # Position of the odd bars:
-
-    #odd_bar0 = subprocess.Popen('show -s mcsus '+'B'+"{0:0=2d}".format(2*i-1)+'POS',shell=True, stdout=subprocess.PIPE).stdout
-    #odd_bar = odd_bar0.read()
-    #pos_odd = float(odd_bar[33:42])
 
     odd_bar = get(f"B{2*i-1:02d}POS", 'mcsus', mode=float)
     print('Position odd bar: ',odd_bar)
@@ -68,17 +60,13 @@ for i in range(1,47):
 
         # Open odd bars by 2.5 arcseconds (1.814mm)
         new_pos_odd = odd_bar - 1.814
-        print('Opening odd bars 2.5 arcsec')
-        #subprocess.Popen('modify -s mcsus '+'B'+"{0:0=2d}".format(2*i-1)+'TARG = ' + str(new_pos_odd),shell=True, stdout=subprocess.PIPE).stdout
+        print('Opening odd bars 2.5 arcsec')        
         set('B'+"{0:0=2d}".format(2*i-1)+'TARG',str(new_pos_odd),service='mcsus', wait=True)
 
         # Open even bars by 2.5 arcseconds (1.814mm)
         new_pos_even = even_bar+1.814
         print('Opening even bars 2.5 arcsec')
-        #subprocess.Popen('modify -s mcsus '+'B'+"{0:0=2d}".format(2*i)+'TARG = ' + str(new_pos_even),shell=True, stdout=subprocess.PIPE).stdout
         set('B'+"{0:0=2d}".format(2*i)+'TARG',str(new_pos_even),service='mcsus', wait=True)
-
-
 
 
     else:
@@ -86,27 +74,25 @@ for i in range(1,47):
         print(' ')
 
 # Setup the name of the new mask:
-#mask_name0 = subprocess.Popen('show -s mcsus -terse maskname',shell=True, stdout=subprocess.PIPE).stdout
+
 mask_name0 = get('MASKNAME',service='mcsus',mode=str)
 print(mask_name0)
 mask_name = mask_name0.rstrip().replace(" (align)", "")
 
 
 print('Current mask',mask_name)
-#current_mask = subprocess.Popen('modify -s mcsus SETUPNAME=' + mask_name + '_wide', shell=True, stdout=subprocess.PIPE).stdout
 current_mask = set('SETUPNAME',mask_name + '_wide', service='mcsus')
 
 
 # Setup the CSU mask with wider alignment boxes
 print('Setup the new alignment mask with wider alignment boxes')
-#subprocess.Popen('modify -s mosfire csusetup=1', shell=True, stdout=subprocess.PIPE).stdout
+
 set('CSUSETUP', 1)
 print('Setting up CSU')
 
 # Check that the status of the CSU is set up:
 
-#csu_setup0 = subprocess.Popen('show -s mcsus CSUREADY',shell=True, stdout=subprocess.PIPE).stdout
-#csu_setup_state = csu_setup0.read()
+
 csu_setup_state=get('CSUREADY', service='mcsus',mode=float)
 print('CSU state: ',csu_setup_state)
 
