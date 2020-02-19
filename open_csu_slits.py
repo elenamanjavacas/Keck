@@ -54,7 +54,7 @@ for i in range(1,47):
 
     # Open the bars if the difference beteween the bars is bigger than 3 arcsec (2.1768 mm), and smaller than 354.0 arcsec (250.33 mm):
 
-    if Diff_Bars > 0.65 and Diff_Bars < 250.33:
+    if Diff_Bars > 0.65 and Diff_Bars < 250.33 and even_bar > 5.0 and odd_bar < 265.0:
         print('Open the alingment boxes!')
         print(' ')
 
@@ -70,7 +70,7 @@ for i in range(1,47):
 
 
     else:
-        print('You are not allowed to open the bars anymore or you got a slit there!')
+        print('You are not allowed to open the bars anymore because they are too close to the edge, or you got a slit there!')
         print(' ')
 
 # Setup the name of the new mask:
