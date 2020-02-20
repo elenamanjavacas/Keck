@@ -22,6 +22,9 @@ from decimal import Decimal
 import subprocess
 import time
 #==============================================================================
+### HOW TO EXECUTE THIS script
+### Assumes that your slits are 0.7 arcseconds, and that your aligment boxes are wider than your slits. This script widens your alignment boxes to help searching for your alignment stars.
+### Execute the wrapper for the script as: "open_csu_slits", on the directory: "/home/moseng/elena/python_scripts/KeckInstruments/Instruments/mosfire/", and hit enter. The wrapper just executes the command: "kpython3 open_csu_slits.py"
 
 def open_csu_slits(slitwidth=0.7):
 
