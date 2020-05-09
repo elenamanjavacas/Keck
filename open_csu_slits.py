@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 #title           :open_csu_slits.py
+#path            :/home/moseng/elena/python_scripts/Keck
 #description     :This script opens the alignment boxes on a MOSFIRE mask to check if your alignment stars are in the neighborhood of the alignment boxes.
 #author          :E. Manjavacas
 #date            :December 10, 2019
