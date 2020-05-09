@@ -57,7 +57,7 @@ for i in range(1,47):
 
     # Open the bars if the difference beteween the bars is bigger than 3 arcsec (2.1768 mm), and smaller than 354.0 arcsec (250.33 mm):
 
-    if Diff_Bars > 0.65 and Diff_Bars < 250.33 and even_bar > 5.0 and odd_bar < 265.0:
+    if Diff_Bars > 0.65 and Diff_Bars < 250.33 and odd_bar > 10.0 and even_bar < 260.0:
         print('Open the alingment boxes!')
         print(' ')
 
