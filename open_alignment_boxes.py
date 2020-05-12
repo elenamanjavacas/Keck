@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-#title           :open_csu_slits.py
+#title           :open_alignment_boxes.py
 #description     :This script opens the alignment boxes on a MOSFIRE mask to check if your alignment stars are in the neighborhood of the alignment boxes.
 #author          :E. Manjavacas
 #date            :December 10, 2019
 #version         :1.0
-#usage           :kpython3 open_csu_slits.py, inside moseng@mosfire, /home/moseng/elena/python_scripts/KeckInstruments/Instruments/mosfire
+#usage           :kpython3 open_alignment_boxes.py, inside moseng@mosfire, /home/moseng/elena/python_scripts/KeckInstruments/Instruments/mosfire
 #notes           :
 #python_version  :3
 #==============================================================================
@@ -23,7 +23,7 @@ import subprocess
 import time
 #==============================================================================
 
-def open_csu_slits(slitwidth=0.7):
+def open_alignment_boxes(slitwidth=0.7):
 
 # Unless otherwise defined, we assume that the slitwidht is 0.7"
 
