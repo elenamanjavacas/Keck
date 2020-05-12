@@ -2,8 +2,8 @@
 #title           :open_alignment_boxes.py
 #description     :This script opens the alignment boxes on a MOSFIRE mask to check if your alignment stars are in the neighborhood of the alignment boxes.
 #author          :E. Manjavacas
-#date            :December 10, 2019
-#version         :1.0
+#date            :May 11, 2020
+#version         :2.0
 #usage           :kpython3 open_alignment_boxes.py, inside moseng@mosfire, /home/moseng/elena/python_scripts/KeckInstruments/Instruments/mosfire
 #notes           :
 #python_version  :3
